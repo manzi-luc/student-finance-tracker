@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Finance Tracker</title>
+</head>
+
+<body>
+    <a class="skip" href="#main">Skip to Content</a>
+    <header>
+        <h1>Student Finance Tracker</h1>
+        <nav>
+            <a href="#About">About</a>
+            <a href="#Dashboard">Dashboard</a>
+            <a href="#Records">Records</a>
+            <a href="#Add">Add</a>
+            <a href="#Settings">Settings</a>
+        </nav>
+    </header>
+    <main id="main">
+        <section class="card" id="About">
+            <h2>About</h2>
+            <p>This is a student finance tracker</p>
+            <ul>
+                <li><a href="m.luc@alustudent.com">Email</a></li>
+                <li><a href="https://github.com/manzi-luc/student-finance-tracker">github</a></li>
+            </ul>
+
+        </section>
+        <section class="card" id="Dashboard">
+            <h2>Dashboard</h2>
+            <p id="Total-records">Total records</p>
+            <p id="Total-spent">Total spent</p>
+            <p id="Top-Category">Top Category</p>
+            <p id="chart-7-day">7-day chart</p>
+            <p id="Limit-message">Limit message</p>
+
+
+        </section>
+        <section class="card" id="Records">
+            <h2>Records</h2>
+            <label for="Sort-by">Sort-by</label>
+            <select name="Sort-by" id="Sort-by">
+                <option value="date">date</option>
+                <option value="Amount">Amount</option>
+                <option value="Description">Description</option>
+            </select>
+            <label for="Search">Search</label>
+            <input type="search" id="Search" name="Search   ">
+            
+            <table id="table-information">
+                <caption>Spending record</caption>
+                <thead id="thead-tabel">
+                    <tr>
+                            <th scope="col">Description</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+
+                    </tbody>
+                    
+                
+            </table>
+        </section>
+
+
+
+        <section class="card" id="Add">
+            <h2>Add</h2>
+            <form>
+                <label for="Description">Description </label>
+                <input type="text" id="Description">
+                <span id="Description-error"></span>
+                <label for="Amount">Amount</label>
+                <input type="number"id="Amount">
+                <span id="Amount-error"></span>
+                <label for="Category">Category </label>
+                <select name="Category" id="Category">
+                    <option value="food">food</option>
+                    <option value="transport">transport</option>
+                    <option value="fees">fees</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Books">Books</option>
+                    <option value="others">others</option>
+
+                </select>
+                <span id="Category-error"></span>
+                <label for="Date">Date </label>
+                <input id="Date" type="date">
+                <span id="Date-error"></span>
+
+
+                    <button type="button">Add</button>
+
+                    <button type="button">Cancel</button>
+
+            </form>
+        </section>
+        <section class="card" id="Settings">
+            <h2>Settings</h2>
+            <label for="Base-currency">Base currency</label>
+            <select name="Base-currency" id="Base-currency">
+            <option value="USD">USD</option>  
+            <option value="RWF">RWF</option>
+            </select>
+        
+            <label for="USA-currency">USA-currency</label>
+            <select name="USA-currency" id="USA-currency">
+            <option value="USD">USD</option>
+            </select>
+            <label for="rate-2">ratebox2</label>
+            <input type="text" id="rate-2" rate value="4.00">
+            <label for="EU-currency">EU-currency</label>
+            <select name="EU-currency" id="EU-currency">
+                <option value="Euro">Euro</option>
+                
+            </select>
+            <label for="rate">ratebox</label>
+            <input type="text" id="rate" rate value="4.00">
+
+            <label for="Spending-Limit">Spending Limit</label>
+            <input type="number" id="Spending-Limit" placeholder="Set Limit">
+            <label for="Add-Category"> Add-Category</label>
+            <input type="text" id="Add-Category">
+            <button type="button">Add category</button>
+                <option value="USA-currency">USA-currency</option>
+                <option value="EU-currency">EU-currency"</option>
+            </select>
+            <button type="button">Export</button>
+            <button type="button">Import</button>
+            <button type="button">Save</button>
+
+        </section>
+
+        <footer>Thank u for using this website</footer>
+
+
+
+    </main>
+
+
+
+</body>
+
+</html>
