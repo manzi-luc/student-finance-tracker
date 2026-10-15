@@ -1,33 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2x2 Reviews Grid</title>
-    <link rel="stylesheet" href="app.css">
+    <title>Student Finance Tracker</title>
+    <link rel="stylesheet" href="main.css">
 </head>
+
 <body>
-    <div class="reviews-grid">
-        <div class="review-card">
-            <h3 class="review-heading">Review 1</h3>
-            <p class="review-text">"Amazing product! Highly recommend it to everyone!"</p>
-            <p class="reivew-person">Alex</p>
+    <a class="skip" href="#main">Skip to Content</a>
+    <header>
+        <h1>Student Finance Tracker</h1>
+        <nav>
+            <a href="#About">About</a>
+            <a href="#Dashboard">Dashboard</a>
+            <a href="#Records">Records</a>
+            <a href="#Add">Add</a>
+            <a href="#Settings">Settings</a>
+        </nav>
+    </header>
+    <main id="main">
+        <section class="card" id="About">
+            <h2>About</h2>
+            <p>This is a student finance tracker</p>
+            <address>
+                <a href="mailto:m.luc@alustudent.com">My email</a>
+                
+                <a href="https://github.com/manzi-luc/student-finance-tracker">github</a>
+            </address>
+                
+
+        </section>
+        <section class="card" id="Dashboard">
+            <h2>Dashboard</h2>
+            <p id="Total-records">Total records</p>
+            <p id="Total-spent">Total spent</p>
+            <p id="Top-Category">Top Category</p>
+            <p id="chart-7-day">7-day chart</p>
+            <p id="Limit-message">Limit message</p>
+
+
+        </section>
+        <section class="card" id="Records">
+            <h2>Records</h2>
+            <label for="Sort-by">Sort-by</label>
+            <select name="Sort-by" id="Sort-by">
+                <option value="date">date</option>
+                <option value="Amount">Amount</option>
+                <option value="Description">Description</option>
+            </select>
+            <label for="Search">Search</label>
+            <input type="search" id="Search" name="Search">
+            
+            <div class="table-property">
+                <table id="table-information">
+                <caption>Spending record</caption>
+                <thead id="thead-table">
+                    <tr>
+                            <th scope="col">Description</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+
+                    </tbody>
+                    
+                
+            </table>
+            </div>
+        </section>
+
+
+
+        <section class="card" id="Add">
+            <h2>Add</h2>
+            <form>
+                
+                <div><label for="Description">Description </label>
+                <input type="text" id="Description">
+            <span  class="error" id="Description-error"></span>
         </div>
-        <div class="review-card">
-            <h3 class="review-heading">Review 2</h3>
-            <p class="review-text">"Great value for the price. Delivered quickly."</p>
-            <p class="reivew-person">Jamie</p>
+        
+                <div><label for="Amount">Amount</label>
+                <input type="number"id="Amount">
+            <span class="error" id="Amount-error"></span></div>
+                
+                <div><label for="Category">Category </label>
+                <select name="Category" id="Category">
+                    <option value="Food">food</option>
+                    <option value="Transport">transport</option>
+                    <option value="Fees">fees</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Books">Books</option>
+                    <option value="Others">others</option>
+
+                </select>
+                <span class="error" id="Category-error"></span>
+            </div>
+                
+                <div><label for="Date">Date </label>
+                <input id="Date" type="date">
+            <span  class="error"id="Date-error"></span>
         </div>
-        <div class="review-card">
-            <h3 class="review-heading">Review 3</h3>
-            <p class="review-text">"Works as advertised. Would buy again."</p>
-            <p class="reivew-person">Taylor</p>
-        </div>
-        <div class="review-card">
-            <h3 class="review-heading">Review 4</h3>
-            <p class="review-text">"Not what I expected, but decent quality."</p>
-            <p class="reivew-person">Morgan</p>
-        </div>
-    </div>
+                
+                
+                
+                
+                    <div>
+                        <button type="button">Add</button>
+
+                    <button type="button">Cancel</button>
+                    </div>
+
+                
+            </form>
+        </section>
+        <section class="card" id="Settings">
+            <h2>Settings</h2>
+            <label for="Base-currency">Base currency</label>
+            <select name="Base-currency" id="Base-currency">
+            <option value="USD">USD</option>  
+            <option value="RWF">RWF</option>
+            </select>
+        
+            <label for="USA-currency">USA-currency</label>
+            <select name="USA-currency" id="USA-currency">
+            <option value="USD">USD</option>
+            </select>
+            <label for="rate-us">rate-us</label>
+            <input type="number" id="rate-us" rate value="4.00">
+            <label for="eu-currency">eu-currency</label>
+            <select name="eu-currency" id="eu-currency">
+                <option value="EURO">euro</option>
+                
+            </select>
+            <label for="rate-eu">rate-eu</label>
+            <input type="number" id="rate-eu" rate value="4.00">
+
+            <label for="Spending-Limit">Spending Limit</label>
+            <input type="number" id="Spending-Limit" placeholder="Set Limit">
+            <label for="Add-Category"> Add-Category</label>
+            <input type="text" id="Add-Category">
+            <button type="button">Add category</button>
+            <button type="button">Export</button>
+            
+            <button type="button">Import</button>
+            <button type="button">Save</button>
+
+        </section>
+
+        
+
+
+
+    </main>
+
+<footer>Thank u for using this website</footer>
+
 </body>
+
 </html>
