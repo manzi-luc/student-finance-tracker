@@ -103,7 +103,9 @@ function makeCell(text){
   return cell;
 }
 
+
 function drawRecords() {
+  
     recordtbody.replaceChildren();
   for (const record of getRecords()){
     const row = document.createElement("tr");
@@ -119,9 +121,51 @@ function drawRecords() {
         
       row.append(makeCell(record.description), makeCell(record.amount), makeCell(record.category),makeCell(record.date),actionsCell)
       recordtbody.appendChild(row); 
+  }
+
+// safe regex compiler 
+      function compileRegex(text,flags){
+  try{
+    return text ? new RegExp(text,flags) : null;
+  }catch{
+    return null;
+  }
 }
 
-  }
+
+
+      {
+
+
+      
+      function Sortrecords() {
+        for (const record of Sortrecords());
+          let list = [ ...getRecords()];
+  const re = compileRegex(Searchrecord.value,casebox.checked ? "i" : "")
+  searchMessage.textContent = searchbox.value && !re ? "that pattern isn't valid yet" :"";
+  if (re) {
+    list = list.filter((record) => re.test(record.description));
+  
+
+
+  }  ;
+        if (Sortrecord.value === "description") {
+          list.sort((a,b) => a.description.localeCompare(b.description));
+        } else if(Sortrecord.value === "amount-up"){
+          list.sort((a,b) => a.amount -b.amount);
+        } else if (Sortrecord.value === "amount-down"){
+          list.sort((a,b) => b.amount - a.amount);
+        }else {
+          list.sort((a,b) => b.date.localeCompare(a.date));
+        }
+        
+        return list;
+
+      }
+}}
+
+Sortrecord.addEventListener("change", drawRecords);
+  
   
     recordtbody.addEventListener("click",(event)=>{
       const button = event.target.closest("button");
@@ -132,6 +176,7 @@ function drawRecords() {
       drawRecords();
     }});
 drawRecords();
+const searchMessage = document.getElementById("search-message");
 
 
 

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Finance Tracker</title>
     <link rel="stylesheet" href="main.css">
+    
 </head>
 
 <body>
@@ -44,14 +45,17 @@
         </section>
         <section class="card" id="Records">
             <h2>Records</h2>
-            <label for="Sort-by">Sort-by</label>
-            <select name="Sort-by" id="Sort-by">
+            <label for="Sort-by"id="Sort-record">Sort-by</label>
+            <select name="Sort-by" id="Sort-record">
                 <option value="date">date</option>
                 <option value="Amount">Amount</option>
                 <option value="Description">Description</option>
             </select>
-            <label for="Search">Search</label>
-            <input type="search" id="Search" name="Search">
+            <label for="Search-record">Search</label>
+            <input type="search" id="Search-record" name="Search">
+            <label for="Case-box">Case-insensitive</label>
+            <input type="checkbox" id="case-box">
+            <p id="search-message" role="status"></p>
             
             <div class="table-property">
                 <table id="table-information">
@@ -62,10 +66,10 @@
                             <th scope="col">Amount</th>
                             <th scope="col">Category</th>
                             <th scope="col">Date</th>
-                            <th scope="col">Action</th>
+                            <th scope="col">Actions</th>
                         </tr>
                     </thead>
-                    <tbody id="tbody">
+                    <tbody id="record-tbody">
 
                     </tbody>
                     
@@ -111,9 +115,9 @@
                 
                 
                     <div>
-                        <button type="button">Add</button>
+                        <button type="button"id="Add-record-button" >Add</button>
 
-                    <button type="button">Cancel</button>
+                    <button type="button"id="Cancel-record-button">Cancel</button>
                     </div>
 
                 
@@ -160,6 +164,8 @@
     </main>
 
 <footer>Thank u for using this website</footer>
+
+<script type="module" src="scripts/ui.js"></script>
 
 </body>
 
