@@ -6,7 +6,7 @@ import { getRecords,addRecords,deleteRecords,updateRecords } from "./state.js";
 const Cancelrecordbutton = document.getElementById("Cancel-record-button")
 const Searchrecord = document.getElementById("Search-record")
 const Sortrecord = document.getElementById("Sort-record")
-
+const recordtbody = document.getElementById("record-tbody")
 
 
 const amountbox = document.getElementById("Amount");
@@ -53,10 +53,6 @@ function checkAllrecords(){
 allGood = false;
   } else{
   fromMessage(amounterror,amountbox,"");
-
-
-
-
 };
 
   if (!isValidDescription(descriptionbox.value)){
@@ -64,81 +60,81 @@ allGood = false;
 allGood = false;
   } else{
   fromMessage(descriptionerror,descriptionbox,"");
-
-
-
-  }
-
+}
 if (!isValidCategory(categorybox.value)){
     fromMessage(categoryerror,categorybox,"Choose from the options below")
 allGood = false;
   } else{
   fromMessage(categoryerror,categorybox,"");
-
-
-
-  }
+}
 if (!isValidDate(datebox.value)){
     fromMessage(dateerror,datebox,"Should be a real date")
 allGood = false;
 } else{
   fromMessage(dateerror,datebox,"");
-
-
-  }return allGood}
+}return allGood}
 
 const Addrecordbutton = document.getElementById("Add-record-button");
 
 Addrecordbutton.addEventListener("click",() =>{
-  console.log("add clicked");
   if (! checkAllrecords()) return;
-  console.log("check passed");
-  function makeCell(text){
-    const cell = document.createElement("td");
-    cell.textContent = text;
-    return cell;
-
-  }
-  function drawRecords() {
-    recordtbody.replaceChild();
-
-    for (const record of getRecords()){
-      const row = document.createElement("tr");
-      row.append(makeCell(record.description), makecell(record.amount), makecell(record.category),makecell(record.date),makecell(record.actions))
-      recordtbody.appendChild(row); 
-    }
-
-  }
-
   const now = new Date().toISOString();
 
   addRecords({
     id:"record_"+ Date.now(),
-    description:"lunch",
+    description:descriptionbox.value,
     amount:Number(amountbox.value),
-    date:"2026-10-13",
+    date:datebox.value,
+    category: categorybox.value,
 
     createdAt:now,
-    updatedArt:now,
+    updatedAt:now,
 
     
   })
   descriptionbox.value ="";
   amountbox.value = "";
-  categorybox.value = "";
-  datebox.value = "";
-  console.table(getRecords()); 
+  drawRecords();
 });
 
+function makeCell(text){
+  const cell = document.createElement("td");
+  cell.textContent = text;
+  return cell;
+}
 
-console.log("draw called");
-console.log("saved:",getRecords().length);
+function drawRecords() {
+    recordtbody.replaceChildren();
+  for (const record of getRecords()){
+    const row = document.createElement("tr");
+    const deletebutton = document.createElement("button");
+      deletebutton.type = "button";
+      deletebutton.textContent = "Delete";
+      deletebutton.dataset.id = record.id;
+      deletebutton.setAttribute("aria-label","Delete "+ record.description);
 
-console.log("record: ",getRecords().length);
 
-const recordtbody = document.getElementById("record-tbody")
+      const actionsCell = document.createElement("td");
+      actionsCell.appendChild(deletebutton);
+        
+      row.append(makeCell(record.description), makeCell(record.amount), makeCell(record.category),makeCell(record.date),actionsCell)
+      recordtbody.appendChild(row); 
+}
 
-console.log("rows in table: ",recordtbody.children.length);
+  }
+  
+    recordtbody.addEventListener("click",(event)=>{
+      const button = event.target.closest("button");
+    if (!button) return;
+
+    if (confirm("Delete this record?")){
+      deleteRecords(button.dataset.id);
+      drawRecords();
+    }});
+drawRecords();
+
+
+
 
 
 
